@@ -11,7 +11,7 @@ WORKDIR /app
 ADD . /app
 
 #Instalar os módulos necessários usando o pip (pip install -r requirements.txt)
-RUN pip install -r /requirements.txt
+RUN pip install -r requirements.txt
 
 # Expor a porta 80
 EXPOSE 80

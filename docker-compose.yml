@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  
+  web:
+    container_name: python
+    image: (imagem build)
+    build: .
+    restart: always 
+    ports: 8000:8000
+    volumes: .:/app 
