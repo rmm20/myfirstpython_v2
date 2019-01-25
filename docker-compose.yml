@@ -4,8 +4,8 @@ services:
   
   web:
     container_name: python
-    image: (imagem build)
-    build: .
+    image: localhost:5000/myfirstpython
     restart: always 
-    ports: 8000:8000
-    volumes: .:/app 
+    ports: 
+      - 8082:80
+    
