@@ -3,7 +3,11 @@ pipeline{
     stages { 
       stage ('Build'){
          steps{ 
-           sh 'pip install -r requirements.txt' 
+           echo 'Starting to build docker image'
+
+           script {
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    customImage.push() 
          }
     }  
      
