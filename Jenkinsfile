@@ -7,7 +7,7 @@ pipeline {
 
                 script {
                     def customImage = docker.build("python-image:${env.BUILD_ID}")
-                    customImage.push("python-image")
+                    customImage.push()
                 }
             }
         }
