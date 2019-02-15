@@ -6,7 +6,7 @@ node (label: 'slave') {
     }
 
     stage('Build image') {
-        app = docker.build("getintodevops/hellonode")
+        app = docker.build("rmm20/myfirstpython")
     }
 
     stage('Test image') {
