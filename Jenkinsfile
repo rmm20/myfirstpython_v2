@@ -22,7 +22,7 @@ node (label: 'slave') {
     }
   
    stage('Run image') {
-        sh 'docker run -d rmm20/myfirstpython:1.${env.BUILD_NUMBER} -p 8082:80'
+        sh 'docker run -d rmm20/myfirstpython:latest -p 8082:80'
    
    }
 
