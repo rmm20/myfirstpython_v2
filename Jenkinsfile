@@ -20,4 +20,10 @@ node (label: 'slave') {
             app.push("1.${env.BUILD_NUMBER}")
         }
     }
+  
+   stage('Run image') {
+      docker.image('rmm20/myfirstpython:1.${env.BUILD_NUMBER').withRun('-p 8082:80') 
+ 
+   }
+
 }
