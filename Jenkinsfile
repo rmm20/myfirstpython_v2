@@ -17,7 +17,7 @@ node (label: 'slave') {
 
     stage('Push image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("version_${env.BUILD_NUMBER}")
+            app.push("1.${env.BUILD_NUMBER}")
         }
     }
 }
