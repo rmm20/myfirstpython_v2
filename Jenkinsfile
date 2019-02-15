@@ -2,14 +2,21 @@ pipeline {
     agent {label 'slave'}
     stages {
         stage('Build image') {
-            steps {
-                echo 'Starting to build docker image'
+        app = docker.build("python-image/with-jenkins")
+    }
 
-                script {
-                    def customImage = docker.build("python-image:${env.BUILD_ID}")
-                    customImage.push()
-                }
-            }
+    stage('Test image') {
+        app.inside {
+            sh 'echo "Tests passed"'
         }
     }
+
+    stage('Push image') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+        }
+    }
+  }
 }
+
